@@ -26,36 +26,37 @@ cards_bin:dict[str, dict[str, int]] = {
 
 bank_chance:dict[str, dict[str, float]] = {
     "Сбер": {
-        "Мир": 0.1,
-        "Visa": 0.1,
-        "Mastercard": 0.1
+        "Мир": 1,
+        "Visa": 1,
+        "Mastercard": 1
     },
 
     "Т-Банк": {
-        "Мир": 0.1,
-        "Visa": 0.1,
-        "Mastercard": 0.1 
+        "Мир": 1,
+        "Visa": 1,
+        "Mastercard": 1 
     },
 
     "ГазпромБанк": {
-        "Мир": 0.1,
-        "Visa": 0.1,
-        "Mastercard": 0.2 
+        "Мир": 1,
+        "Visa": 1,
+        "Mastercard": 1 
     }
 }
 
 pairs = [(bank, payment_system) for bank in bank_chance for payment_system in bank_chance[bank]]
 weights = [bank_chance[bank][payment_system] for bank, payment_system in pairs]
+faker = Faker("ru_RU")
 
 
 class Passenger:
     def __init__(self, cost:int, wagon:int, seat:int):
-        global used_passports, used_cards
-        self.name = Faker("ru_RU").name()
-        self.cost = cost
-        self.wagon = wagon
-        self.seat = seat
-        self.passport = self.generate_passport() 
+        global used_passports, used_cards, faker
+        self.name:str = faker.name()
+        self.cost:int = cost
+        self.wagon:int = wagon
+        self.seat:int = seat
+        self.passport:str = self.generate_passport() 
         self.card:int = self.generate_card()
 
 
