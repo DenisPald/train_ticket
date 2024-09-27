@@ -4,8 +4,19 @@ from data import *
 
 
 data = list()
+data_counter = 0
 
-for i in range(0, 14):
+while True:
+    try:
+        data_size = int(input("Введите требуемый размер датасета:"))
+        if data_size < 0:
+            raise ValueError
+        break
+    except ValueError:
+        print("Ошибка: введите числовое значение.")
+
+i = 0
+while True:
     departure_day = datetime.datetime.today() + datetime.timedelta(days=i)
     
     departure_datetime_1 = departure_day.replace(hour=5, minute=55)
@@ -73,7 +84,6 @@ for i in range(0, 14):
     train_15 = Train("803C", "Ласточка", "Адлер", departure_datetime_14, "Краснодар", destination_datetime_14, 670)
 
     for train in (train_1, train_2, train_3, train_4, train_5, train_6, train_7, train_8, train_9, train_10, train_11, train_12, train_13, train_14, train_15):
-    # for train in (train_1, ):
         for passenger in train.passengers:
             data.append({
                 "ФИО": passenger.name,
@@ -87,8 +97,12 @@ for i in range(0, 14):
                 "Стоимость": passenger.cost,
                 "Карта оплаты": passenger.card
             })
-    
-df = pd.DataFrame(data)
+            data_counter+=1
+            if data_counter == data_size:
+                df = pd.DataFrame(data)
 
-df.to_csv("train_tickets.csv", index=False)
-df.to_excel("train_ticket.xlsx", index=False)
+                df.to_csv("train_tickets.csv", index=False)
+                df.to_excel("train_ticket.xlsx", index=False)
+                exit()
+
+    i+=1

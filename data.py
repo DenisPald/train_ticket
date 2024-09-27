@@ -55,6 +55,8 @@ for bank in banks:
         while True:
             try:
                 chance = float(input(f"Введите вес для карты {card}: "))
+                if chance < 0:
+                    raise ValueError
                 bank_chance[bank][card] = chance
                 break
             except ValueError:
