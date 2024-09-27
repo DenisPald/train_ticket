@@ -69,13 +69,22 @@ faker = Faker("ru_RU")
 
 class Passenger:
     def __init__(self, cost:int, wagon:int, seat:int):
-        global used_passports, used_cards, faker
-        self.name:str = faker.name()
+        global used_passports, used_cards
+        self.name:str = self.generate_name()
         self.cost:int = cost
         self.wagon:int = wagon
         self.seat:int = seat
         self.passport:str = self.generate_passport() 
         self.card:int = self.generate_card()
+
+
+    @staticmethod
+    def generate_name() -> str:
+        global faker
+        if random.choice(("Male", "Female")) == "Male":
+            return f"{faker.last_name_male()} {faker.first_name_male()} {faker.middle_name_male()}" 
+
+        return f"{faker.last_name_female()} {faker.first_name_female()} {faker.middle_name_female()}" 
 
 
     @staticmethod
