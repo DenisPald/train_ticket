@@ -90,9 +90,9 @@ class Passenger:
     @staticmethod
     def generate_passport() -> str:
         global used_passports
-        passport = f"{random.randint(1000, 9999)} {random.randint(100000, 999999)}"
+        passport = f"{random.randint(1, 99):02d}{random.randint(0, 24):02d} {random.randint(1, 999999):06d}"
         while passport in used_passports:
-            passport = f"{random.randint(1000, 9999)} {random.randint(100000, 999999)}"
+            passport = f"{random.randint(1, 99):02d}{random.randint(0, 24):02d} {random.randint(1, 999999):06d}"
         used_passports.add(passport)
         return passport
 
