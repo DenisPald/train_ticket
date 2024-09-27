@@ -4,60 +4,85 @@ from data import *
 
 
 data = list()
-for i in range(0, 11):
+
+for i in range(0, 14):
     departure_day = datetime.datetime.today() + datetime.timedelta(days=i)
     
     departure_datetime_1 = departure_day.replace(hour=5, minute=55)
     destination_datetime_1 = departure_day.replace(hour=9, minute=42)
-    sapsan_1 = Train("754", "Сапсан", "Москва", departure_datetime_1, "Санкт-Петербург", destination_datetime_1, 2500)
+    train_1 = Train("754", "Сапсан", "Москва", departure_datetime_1, "Санкт-Петербург", destination_datetime_1, 2500)
 
     departure_datetime_2 = departure_day.replace(hour=6, minute=50)
     destination_datetime_2 = departure_day.replace(hour=10, minute=46)
-    sapsan_2 = Train("756", "Сапсан", "Москва", departure_datetime_2, "Санкт-Петербург", destination_datetime_2, 2600)
+    train_2 = Train("756", "Сапсан", "Москва", departure_datetime_2, "Санкт-Петербург", destination_datetime_2, 2600)
 
     departure_datetime_3 = departure_day.replace(hour=9, minute=30)
     destination_datetime_3 = departure_day.replace(hour=13, minute=25)
-    sapsan_3 = Train("760", "Сапсан", "Москва", departure_datetime_3, "Санкт-Петербург", destination_datetime_3, 2700)
+    train_3 = Train("760", "Сапсан", "Москва", departure_datetime_3, "Санкт-Петербург", destination_datetime_3, 2700)
 
     departure_datetime_4 = departure_day.replace(hour=13, minute=30)
     destination_datetime_4 = departure_day.replace(hour=17, minute=30)
-    sapsan_4 = Train("768", "Сапсан", "Москва", departure_datetime_4, "Санкт-Петербург", destination_datetime_4, 2700)
+    train_4 = Train("768", "Сапсан", "Москва", departure_datetime_4, "Санкт-Петербург", destination_datetime_4, 2700)
 
     departure_datetime_5 = departure_day.replace(hour=15, minute=30)
     destination_datetime_5 = departure_day.replace(hour=19, minute=40)
-    sapsan_5 = Train("772", "Сапсан", "Москва", departure_datetime_5, "Санкт-Петербург", destination_datetime_5, 2700)
+    train_5 = Train("772", "Сапсан", "Москва", departure_datetime_5, "Санкт-Петербург", destination_datetime_5, 2700)
 
     departure_datetime_6 = departure_day.replace(hour=19, minute=30)
     destination_datetime_6 = departure_day.replace(hour=23, minute=37)
-    sapsan_6 = Train("778", "Сапсан", "Москва", departure_datetime_6, "Санкт-Петербург", destination_datetime_6, 3000)
+    train_6 = Train("778", "Сапсан", "Москва", departure_datetime_6, "Санкт-Петербург", destination_datetime_6, 3000)
 
     departure_datetime_7 = departure_day.replace(hour=5, minute=30)
     destination_datetime_7 = departure_day.replace(hour=9, minute=18)
-    sapsan_7 = Train("751", "Сапсан", "Санкт-Петербург", departure_datetime_7, "Москва", destination_datetime_7, 2000)
+    train_7 = Train("751", "Сапсан", "Санкт-Петербург", departure_datetime_7, "Москва", destination_datetime_7, 2000)
 
     departure_datetime_8 = departure_day.replace(hour=13, minute=0)
     destination_datetime_8 = departure_day.replace(hour=17, minute=0)
-    sapsan_8 = Train("767", "Сапсан", "Санкт-Петербург", departure_datetime_8, "Москва", destination_datetime_8, 2300)
+    train_8 = Train("767", "Сапсан", "Санкт-Петербург", departure_datetime_8, "Москва", destination_datetime_8, 2300)
 
     departure_datetime_9 = departure_day.replace(hour=17, minute=0)
     destination_datetime_9 = departure_day.replace(hour=20, minute=50)
-    sapsan_9 = Train("775", "Сапсан", "Санкт-Петербург", departure_datetime_9, "Москва", destination_datetime_9, 2500)
+    train_9 = Train("775", "Сапсан", "Санкт-Петербург", departure_datetime_9, "Москва", destination_datetime_9, 2500)
 
     departure_datetime_10 = departure_day.replace(hour=19, minute=10)
     destination_datetime_10 = departure_day.replace(hour=23, minute=15)
-    sapsan_10 = Train("781", "Сапсан", "Санкт-Петербург", departure_datetime_10, "Москва", destination_datetime_10, 2000)
+    train_10 = Train("781", "Сапсан", "Санкт-Петербург", departure_datetime_10, "Москва", destination_datetime_10, 2000)
 
-    for sapsan in (sapsan_1, sapsan_2, sapsan_3, sapsan_4, sapsan_5, sapsan_6, sapsan_7, sapsan_8, sapsan_9, sapsan_10):
-    # for sapsan in (sapsan_1, ):
-        for passenger in sapsan.passengers:
+    departure_datetime_11 = departure_day.replace(hour=6, minute=25)
+    destination_datetime_11 = departure_day.replace(hour=10, minute=24)
+    train_11 = Train("727Г", "Ласточка", "Нижний Новгород", departure_datetime_10, "Москва", destination_datetime_10, 1100)
+
+    departure_datetime_11 = departure_day.replace(hour=16, minute=20)
+    destination_datetime_11 = departure_day.replace(hour=20, minute=44)
+    train_11 = Train("732Г", "Ласточка", "Москва", departure_datetime_11, "Нижний Новгород", destination_datetime_11, 800)
+
+    departure_datetime_12 = departure_day.replace(hour=12, minute=00)
+    destination_datetime_12 = departure_day.replace(hour=15, minute=59)
+    train_12 = Train("731М", "Ласточка", "Москва", departure_datetime_12, "Смоленск", destination_datetime_12, 700)
+
+    departure_datetime_13 = departure_day.replace(hour=16, minute=00)
+    destination_datetime_13 = departure_day.replace(hour=19, minute=41)
+    train_13 = Train("721М", "Ласточка", "Москва", departure_datetime_13, "Смоленск", destination_datetime_13, 700)
+
+    departure_datetime_14 = departure_day.replace(hour=13, minute=15)
+    destination_datetime_14 = departure_day.replace(hour=18, minute=9)
+    train_14 = Train("803C", "Ласточка", "Краснодар", departure_datetime_14, "Адлер", destination_datetime_14, 670)
+
+    departure_datetime_15 = departure_day.replace(hour=12, minute=47)
+    destination_datetime_15 = departure_day.replace(hour=17, minute=32)
+    train_15 = Train("803C", "Ласточка", "Адлер", departure_datetime_14, "Краснодар", destination_datetime_14, 670)
+
+    for train in (train_1, train_2, train_3, train_4, train_5, train_6, train_7, train_8, train_9, train_10, train_11, train_12, train_13, train_14, train_15):
+    # for train in (train_1, ):
+        for passenger in train.passengers:
             data.append({
                 "ФИО": passenger.name,
                 "Паспорт": passenger.passport,
-                "Откуда": sapsan.departure_city,
-                "Куда": sapsan.destination_city,
-                "Дата отъезда": sapsan.departure_datetime.strftime("%d-%m-%YT%H:%M"),
-                "Дата приезда": sapsan.destination_datetime.strftime("%d-%m-%YT%H:%M"),
-                "Рейс": sapsan.number,
+                "Откуда": train.departure_city,
+                "Куда": train.destination_city,
+                "Дата отъезда": train.departure_datetime.strftime("%d-%m-%YT%H:%M"),
+                "Дата приезда": train.destination_datetime.strftime("%d-%m-%YT%H:%M"),
+                "Рейс": train.number,
                 "Вагон и место": f"{passenger.wagon}-{passenger.seat}",
                 "Стоимость": passenger.cost,
                 "Карта оплаты": passenger.card
@@ -66,3 +91,4 @@ for i in range(0, 11):
 df = pd.DataFrame(data)
 
 df.to_csv("train_tickets.csv", index=False)
+df.to_excel("train_ticket.xlsx", index=False)

@@ -25,27 +25,45 @@ cards_bin:dict[str, dict[str, int]] = {
 }
 
 bank_chance:dict[str, dict[str, float]] = {
-    "Сбер": {
-        "Мир": 1,
-        "Visa": 1,
-        "Mastercard": 1
-    },
+    # "Сбер": {
+    #     "Мир": 1,
+    #     "Visa": 1,
+    #     "Mastercard": 1
+    # },
 
-    "Т-Банк": {
-        "Мир": 1,
-        "Visa": 1,
-        "Mastercard": 1 
-    },
+    # "Т-Банк": {
+    #     "Мир": 1,
+    #     "Visa": 1,
+    #     "Mastercard": 1 
+    # },
 
-    "ГазпромБанк": {
-        "Мир": 1,
-        "Visa": 1,
-        "Mastercard": 1 
-    }
+    # "ГазпромБанк": {
+    #     "Мир": 1,
+    #     "Visa": 1,
+    #     "Mastercard": 1 
+    # }
 }
+
+banks = ["Сбер", "Т-Банк", "ГазпромБанк"]
+cards = ["Мир", "Visa", "Mastercard"]
+
+# Цикл для заполнения данных
+for bank in banks:
+    bank_chance[bank] = {}
+    print(f"Введите веса для банка {bank}:")
+    for card in cards:
+        while True:
+            try:
+                chance = float(input(f"Введите вес для карты {card}: "))
+                bank_chance[bank][card] = chance
+                break
+            except ValueError:
+                print("Ошибка: введите числовое значение.")
+
 
 pairs = [(bank, payment_system) for bank in bank_chance for payment_system in bank_chance[bank]]
 weights = [bank_chance[bank][payment_system] for bank, payment_system in pairs]
+
 faker = Faker("ru_RU")
 
 
@@ -60,7 +78,8 @@ class Passenger:
         self.card:int = self.generate_card()
 
 
-    def generate_passport(self) -> str:
+    @staticmethod
+    def generate_passport() -> str:
         global used_passports
         passport = f"{random.randint(1000, 9999)} {random.randint(100000, 999999)}"
         while passport in used_passports:
@@ -69,7 +88,8 @@ class Passenger:
         return passport
 
 
-    def generate_card(self) -> int:
+    @staticmethod
+    def generate_card() -> int:
         global used_cards_counter, cards_bin, pairs, weights
         random_pair = random.choices(pairs, weights=weights, k=1)[0]
         bank = random_pair[0]
@@ -79,7 +99,7 @@ class Passenger:
         card = int(card)
         if card in used_cards_counter:
             if used_cards_counter[card] >= 5:
-                return self.generate_card()
+                return Passenger.generate_card()
             else:
                 used_cards_counter[card]+=1
         else:
@@ -109,10 +129,10 @@ class Train:
         self.passengers:set[Passenger] = self.generate_passangers()
 
     def generate_passangers(self) -> set:
+        passengers = set()
         if self.type_of_train == "Сапсан":
-            passengers = set()
             
-            for i in range(1, 19):
+            for i in range(1, 20):
                 passengers.add(Passenger(self.base_cost*10, 1, i))
 
             for i in range(1, 45):
@@ -144,4 +164,11 @@ class Train:
 
             return passengers
 
-        return set()
+        elif self.type_of_train == "Ласточка":
+            # 10 базовых вагонов
+            for i in range(1, 11):
+                for j in range(1, 70):
+                    passengers.add(Passenger(int(self.base_cost*random.uniform(0.8, 1.3)), i, j))
+
+
+        return passengers
