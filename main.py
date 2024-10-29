@@ -15,9 +15,9 @@ while True:
     except ValueError:
         print("Ошибка: введите числовое значение.")
 
-i = 0
+days_delta = 0
 while True:
-    departure_day = datetime.datetime.today() + datetime.timedelta(days=i)
+    departure_day = datetime.datetime.today() + datetime.timedelta(days=days_delta)
     
     departure_datetime_1 = departure_day.replace(hour=5, minute=55)
     destination_datetime_1 = departure_day.replace(hour=9, minute=42)
@@ -25,31 +25,31 @@ while True:
 
     departure_datetime_2 = departure_day.replace(hour=6, minute=50)
     destination_datetime_2 = departure_day.replace(hour=10, minute=46)
-    train_2 = Train("756", "Сапсан", "Москва", departure_datetime_2, "Санкт-Петербург", destination_datetime_2, 2600)
+    train_2 = Train("756", "Сапсан", "Москва", departure_datetime_2, "Санкт-Петербург", destination_datetime_2, 2500)
 
     departure_datetime_3 = departure_day.replace(hour=9, minute=30)
     destination_datetime_3 = departure_day.replace(hour=13, minute=25)
-    train_3 = Train("760", "Сапсан", "Москва", departure_datetime_3, "Санкт-Петербург", destination_datetime_3, 2700)
+    train_3 = Train("760", "Сапсан", "Москва", departure_datetime_3, "Санкт-Петербург", destination_datetime_3, 2500)
 
     departure_datetime_4 = departure_day.replace(hour=13, minute=30)
     destination_datetime_4 = departure_day.replace(hour=17, minute=30)
-    train_4 = Train("768", "Сапсан", "Москва", departure_datetime_4, "Санкт-Петербург", destination_datetime_4, 2700)
+    train_4 = Train("768", "Сапсан", "Москва", departure_datetime_4, "Санкт-Петербург", destination_datetime_4, 2500)
 
     departure_datetime_5 = departure_day.replace(hour=15, minute=30)
     destination_datetime_5 = departure_day.replace(hour=19, minute=40)
-    train_5 = Train("772", "Сапсан", "Москва", departure_datetime_5, "Санкт-Петербург", destination_datetime_5, 2700)
+    train_5 = Train("772", "Сапсан", "Москва", departure_datetime_5, "Санкт-Петербург", destination_datetime_5, 2500)
 
     departure_datetime_6 = departure_day.replace(hour=19, minute=30)
     destination_datetime_6 = departure_day.replace(hour=23, minute=37)
-    train_6 = Train("778", "Сапсан", "Москва", departure_datetime_6, "Санкт-Петербург", destination_datetime_6, 3000)
+    train_6 = Train("778", "Сапсан", "Москва", departure_datetime_6, "Санкт-Петербург", destination_datetime_6, 2500)
 
     departure_datetime_7 = departure_day.replace(hour=5, minute=30)
     destination_datetime_7 = departure_day.replace(hour=9, minute=18)
-    train_7 = Train("751", "Сапсан", "Санкт-Петербург", departure_datetime_7, "Москва", destination_datetime_7, 2000)
+    train_7 = Train("751", "Сапсан", "Санкт-Петербург", departure_datetime_7, "Москва", destination_datetime_7, 2500)
 
     departure_datetime_8 = departure_day.replace(hour=13, minute=0)
     destination_datetime_8 = departure_day.replace(hour=17, minute=0)
-    train_8 = Train("767", "Сапсан", "Санкт-Петербург", departure_datetime_8, "Москва", destination_datetime_8, 2300)
+    train_8 = Train("767", "Сапсан", "Санкт-Петербург", departure_datetime_8, "Москва", destination_datetime_8, 2500)
 
     departure_datetime_9 = departure_day.replace(hour=17, minute=0)
     destination_datetime_9 = departure_day.replace(hour=20, minute=50)
@@ -57,31 +57,31 @@ while True:
 
     departure_datetime_10 = departure_day.replace(hour=19, minute=10)
     destination_datetime_10 = departure_day.replace(hour=23, minute=15)
-    train_10 = Train("781", "Сапсан", "Санкт-Петербург", departure_datetime_10, "Москва", destination_datetime_10, 2000)
+    train_10 = Train("781", "Сапсан", "Санкт-Петербург", departure_datetime_10, "Москва", destination_datetime_10, 2500)
 
     departure_datetime_11 = departure_day.replace(hour=6, minute=25)
     destination_datetime_11 = departure_day.replace(hour=10, minute=24)
-    train_11 = Train("727Г", "Ласточка", "Нижний Новгород", departure_datetime_10, "Москва", destination_datetime_10, 1100)
+    train_11 = Train("727Г", "Ласточка", "Нижний Новгород", departure_datetime_10, "Москва", destination_datetime_10, 1800)
 
     departure_datetime_11 = departure_day.replace(hour=16, minute=20)
     destination_datetime_11 = departure_day.replace(hour=20, minute=44)
-    train_11 = Train("732Г", "Ласточка", "Москва", departure_datetime_11, "Нижний Новгород", destination_datetime_11, 800)
+    train_11 = Train("732Г", "Ласточка", "Москва", departure_datetime_11, "Нижний Новгород", destination_datetime_11, 1800)
 
     departure_datetime_12 = departure_day.replace(hour=12, minute=00)
     destination_datetime_12 = departure_day.replace(hour=15, minute=59)
-    train_12 = Train("731М", "Ласточка", "Москва", departure_datetime_12, "Смоленск", destination_datetime_12, 700)
+    train_12 = Train("731М", "Ласточка", "Москва", departure_datetime_12, "Смоленск", destination_datetime_12, 2000)
 
     departure_datetime_13 = departure_day.replace(hour=16, minute=00)
     destination_datetime_13 = departure_day.replace(hour=19, minute=41)
-    train_13 = Train("721М", "Ласточка", "Москва", departure_datetime_13, "Смоленск", destination_datetime_13, 700)
+    train_13 = Train("721М", "Ласточка", "Москва", departure_datetime_13, "Смоленск", destination_datetime_13, 2000)
 
     departure_datetime_14 = departure_day.replace(hour=13, minute=15)
     destination_datetime_14 = departure_day.replace(hour=18, minute=9)
-    train_14 = Train("803C", "Ласточка", "Краснодар", departure_datetime_14, "Адлер", destination_datetime_14, 670)
+    train_14 = Train("803C", "Ласточка", "Краснодар", departure_datetime_14, "Адлер", destination_datetime_14, 1500)
 
     departure_datetime_15 = departure_day.replace(hour=12, minute=47)
     destination_datetime_15 = departure_day.replace(hour=17, minute=32)
-    train_15 = Train("803C", "Ласточка", "Адлер", departure_datetime_14, "Краснодар", destination_datetime_14, 670)
+    train_15 = Train("804C", "Ласточка", "Адлер", departure_datetime_15, "Краснодар", destination_datetime_15, 1500)
 
     for train in (train_1, train_2, train_3, train_4, train_5, train_6, train_7, train_8, train_9, train_10, train_11, train_12, train_13, train_14, train_15):
         for passenger in train.passengers:
@@ -101,8 +101,8 @@ while True:
             if data_counter == data_size:
                 df = pd.DataFrame(data)
 
-                df.to_csv("train_tickets.csv", index=False)
-                df.to_excel("train_ticket.xlsx", index=False)
+                df.to_csv(f"train_tickets_{str(data_size)}.csv", index=False)
+                df.to_excel(f"train_tickets_{str(data_size)}.xlsx", index=False)
                 exit()
 
-    i+=1
+    days_delta+=1

@@ -73,6 +73,7 @@ class Passenger:
     def __init__(self, cost:int, wagon:int, seat:int):
         global used_passports, used_cards
         self.name:str = self.generate_name()
+    
         self.cost:int = cost
         self.wagon:int = wagon
         self.seat:int = seat
@@ -144,34 +145,34 @@ class Train:
         if self.type_of_train == "Сапсан":
             
             for i in range(1, 20):
-                passengers.add(Passenger(self.base_cost*10, 1, i))
+                passengers.add(Passenger(int(self.base_cost*8*random.uniform(0.9, 1.1)), 1, i))
 
             for i in range(1, 45):
-                passengers.add(Passenger(self.base_cost*5, 2, i))
+                passengers.add(Passenger(int(self.base_cost*4*random.uniform(0.9, 1.1)), 2, i))
 
             for i in range(1, 67):
-                passengers.add(Passenger(self.base_cost, 3, i))
+                passengers.add(Passenger(int(self.base_cost*random.uniform(0.9, 1.1)), 3, i))
 
             for i in range(1, 67):
-                passengers.add(Passenger(self.base_cost*2, 4, i))
+                passengers.add(Passenger(int(2000+self.base_cost*random.uniform(0.9, 1.1)), 4, i))
 
             for i in range(1, 41):
-                passengers.add(Passenger(int(self.base_cost*1.2 + 2000), 5, i))
+                passengers.add(Passenger(int(2000+self.base_cost*random.uniform(0.9, 1.1)), 5, i))
 
             for i in range(1, 55):
-                passengers.add(Passenger(self.base_cost, 6, i))
+                passengers.add(Passenger(int(self.base_cost*random.uniform(0.9, 1.1)), 6, i))
 
             for i in range(1, 67):
-                passengers.add(Passenger(self.base_cost, 7, i))
+                passengers.add(Passenger(int(self.base_cost*random.uniform(0.9, 1.1)), 7, i))
 
             for i in range(1, 68):
-                passengers.add(Passenger(self.base_cost, 8, i))
+                passengers.add(Passenger(int(self.base_cost*random.uniform(0.9, 1.1)), 8, i))
 
             for i in range(1, 68):
-                passengers.add(Passenger(self.base_cost, 9, i))
+                passengers.add(Passenger(int(self.base_cost*random.uniform(0.9, 1.1)), 9, i))
 
             for i in range(1, 44):
-                passengers.add(Passenger(self.base_cost*2, 10, i))
+                passengers.add(Passenger(int(self.base_cost*2*random.uniform(0.9, 1.1)), 10, i))
 
             return passengers
 
@@ -179,7 +180,7 @@ class Train:
             # 10 базовых вагонов
             for i in range(1, 11):
                 for j in range(1, 70):
-                    passengers.add(Passenger(int(self.base_cost*random.uniform(0.8, 1.3)), i, j))
+                    passengers.add(Passenger(int(self.base_cost*random.uniform(0.9, 1.1)), i, j))
 
 
         return passengers

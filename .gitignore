@@ -1,5 +1,7 @@
 __pycache__
 .env
-train_tickets.csv
-train_ticket.xlsx
-input.txt
+ttenv/
+*.docx
+*.csv
+*.xlsx
+*.txt
